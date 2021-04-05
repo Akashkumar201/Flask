@@ -11,14 +11,9 @@ db=SQLAlchemy(app)
 class BlogPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-
-    content = db.Column(db.Text, nullable=False)
-    title = db.Column(db.Text, nullable=False)
-
-    date= db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    content = db.Column(db.Text, nullable=False)  
     author=db.Column(db.String(20),nullable=False,default="Annonymous")
-
-
+    post_date= db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 
 
@@ -29,7 +24,8 @@ class BlogPost(db.Model):
 @app.route('/')
 def index():
     return render_template('index.html')
-@app.route('/posts')
+
+@app.route('/posts',methods=['GET','POST'])
 def post():
     return render_template('post.html',posts=all_posts)
 if __name__=="__main__":
