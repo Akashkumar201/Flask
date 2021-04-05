@@ -1,0 +1,13 @@
+body {
+    background-color: powderblue;
+    font-family: sans-serif;
+}
+
+h1 {
+    align-items: center;
+    color: blue;
+}
+
+p {
+    color: red;
+}
